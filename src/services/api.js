@@ -2,7 +2,7 @@ import { parseResponse, handleApiError } from '../utils/apiErrorHandler';
 
 // Get API base URL from environment variable
 // Default to localhost if not set
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 async function apiRequest(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
