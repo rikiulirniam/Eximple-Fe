@@ -53,7 +53,7 @@ function HelpPrompt({ isVisible, onClose }) {
           </motion.div>
         
           <motion.img
-            src="/img/codia/ai-agent-avatar.png"
+            src="/img/fullassets/ai-agent-avatar.png"
             alt="Pyrus"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}

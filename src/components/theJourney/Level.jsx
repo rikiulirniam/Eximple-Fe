@@ -144,9 +144,6 @@ function Level() {
         } else if (errorMsg.toLowerCase().includes('unauthorized') || 
                    errorMsg.toLowerCase().includes('forbidden')) {
           setError('Anda tidak memiliki izin untuk menyelesaikan level ini.');
-        } else if (errorMsg.toLowerCase().includes('cors') || 
-                   errorMsg.toLowerCase().includes('cross-origin')) {
-          setError('Masalah CORS terdeteksi. Silakan restart development server atau hubungi administrator backend.');
         } else if (errorMsg.toLowerCase().includes('server error') || 
                    errorMsg.toLowerCase().includes('500') ||
                    errorMsg.toLowerCase().includes('internal server') ||
@@ -166,18 +163,15 @@ function Level() {
       }
     } catch (err) {
       const errorMsg = err.message || '';
-      if (errorMsg.toLowerCase().includes('cors') || 
-          errorMsg.toLowerCase().includes('cross-origin')) {
-        setError('Masalah CORS terdeteksi. Silakan restart development server (npm run dev) atau hubungi administrator backend untuk mengaktifkan CORS.');
-      } else if (errorMsg.toLowerCase().includes('server error') || 
-                 errorMsg.toLowerCase().includes('500') ||
-                 errorMsg.toLowerCase().includes('internal server') ||
-                 errorMsg.toLowerCase().includes('http 500')) {
+      if (errorMsg.toLowerCase().includes('server error') || 
+          errorMsg.toLowerCase().includes('500') ||
+          errorMsg.toLowerCase().includes('internal server') ||
+          errorMsg.toLowerCase().includes('http 500')) {
         setError('Server error (500). Masalah terjadi di backend saat menyelesaikan level. Silakan coba lagi dalam beberapa saat atau hubungi administrator jika masalah berlanjut.');
       } else if (errorMsg.toLowerCase().includes('network') || 
                  errorMsg.toLowerCase().includes('fetch') ||
                  errorMsg.toLowerCase().includes('failed to fetch')) {
-        setError('Gagal terhubung ke server. Periksa koneksi internet Anda atau restart development server.');
+        setError('Gagal terhubung ke server. Periksa koneksi internet Anda.');
       } else if (errorMsg) {
         setError(errorMsg);
       } else {

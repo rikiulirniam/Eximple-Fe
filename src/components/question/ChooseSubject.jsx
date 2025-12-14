@@ -87,7 +87,7 @@ function ChooseSubject() {
           <div className="w-12 h-12 relative">
             <div 
               className="w-full h-full bg-cover bg-center bg-no-repeat"
-              style={{backgroundImage: 'url(/img/codia/logo-eximple.png)'}}
+              style={{backgroundImage: 'url(/img/fullassets/logo-eximple.png)'}}
             ></div>
           </div>
           <span className="font-['Airlash_Raiders'] text-3xl font-normal bg-gradient-to-b from-[#1fb622] to-[#168318] bg-clip-text text-transparent">

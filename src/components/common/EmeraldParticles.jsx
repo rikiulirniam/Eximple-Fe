@@ -57,7 +57,7 @@ export default function EmeraldParticles({ trigger, targetElement }) {
             }}
           >
             <img 
-              src="/img/codia/icon-leaf.svg" 
+              src="/img/fullassets/icon-leaf.svg" 
               alt="Emerald" 
               className="w-full h-full filter brightness-150"
               style={{

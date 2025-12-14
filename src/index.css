@@ -45,7 +45,6 @@ body {
 /* Exception: Only override for specific font classes */
 .font-airlash,
 .font-\[Airlash_Raiders\],
-.font-\[\'Airlash_Raiders\'],
 [class*="Airlash_Raiders"],
 [class*="Airlash Raiders"] {
   font-family: 'Airlash Raiders', sans-serif !important;
@@ -54,7 +53,6 @@ body {
 
 .font-press-start,
 .font-\[Press_Start_2P\],
-.font-\[\'Press_Start_2P\'],
 [class*="Press_Start_2P"],
 [class*="Press Start 2P"] {
   font-family: 'Press Start 2P', monospace !important;

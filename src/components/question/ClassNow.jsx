@@ -9,15 +9,11 @@ function ClassNow() {
   const [error, setError] = useState(null);
 
   const levelToClassId = {
-    'elementary': 1,
-    'middle': 2,
-    'high': 3
+    'elementary': 1
   };
 
   const levels = [
-    { id: 'elementary', name: 'Elementary School', image: '/img/getStartedImg/mascotmodel3.png', classId: levelToClassId.elementary },
-    { id: 'middle', name: 'Middle School', image: '/img/getStartedImg/mascotmodel4.png', classId: levelToClassId.middle },
-    { id: 'high', name: 'High School', image: '/img/getStartedImg/middlescroll.png', classId: levelToClassId.high }
+    { id: 'elementary', name: 'Elementary School', image: '/img/getStartedImg/mascotmodel3.png', classId: levelToClassId.elementary }
   ];
 
   const selectLevel = (level) => {
@@ -96,7 +92,7 @@ function ClassNow() {
                 }`}
               >
                 <div 
-                  className={`${level.id === 'elementary' ? 'w-full max-w-[200px] sm:max-w-[241px] h-[100px] sm:h-[132px] mt-[32px] sm:mt-[42px]' : level.id === 'middle' ? 'w-full max-w-[200px] sm:max-w-[232px] h-[90px] sm:h-[121px] mt-[40px] sm:mt-[52px]' : 'w-full max-w-[220px] sm:max-w-[264px] h-[100px] sm:h-[136px] mt-[32px] sm:mt-[41px]'} bg-cover bg-center bg-no-repeat`}
+                  className="w-full max-w-[200px] sm:max-w-[241px] h-[100px] sm:h-[132px] mt-[32px] sm:mt-[42px] bg-cover bg-center bg-no-repeat"
                   style={{backgroundImage: `url(${level.image})`}}
                 ></div>
                 <span className="font-['ZT_Nature'] text-xs sm:text-sm md:text-base font-medium text-white text-center mt-[16px] sm:mt-[22px] px-4 pb-4">

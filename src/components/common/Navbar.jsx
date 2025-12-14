@@ -58,7 +58,7 @@ function Navbar({ stats: statsProp, activePage = 'learn' }) {
           <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 relative">
             <div 
               className="w-full h-full bg-cover bg-center bg-no-repeat"
-              style={{backgroundImage: 'url(/img/codia/logo-eximple.png)'}}
+              style={{backgroundImage: 'url(/img/fullassets/logo-eximple.png)'}}
             ></div>
           </div>
           <span className="font-['Airlash_Raiders'] text-lg sm:text-xl md:text-2xl font-normal bg-gradient-to-b from-[#1fb622] to-[#168318] bg-clip-text text-transparent">
@@ -91,7 +91,7 @@ function Navbar({ stats: statsProp, activePage = 'learn' }) {
         <div className="flex items-center gap-1 sm:gap-2 z-50">
           {/* Streak */}
           <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 bg-gradient-to-b from-[#f47b20] to-[#f99621] rounded-xl sm:rounded-2xl shadow-[0_-2px_4px_0_rgba(255,255,255,0.5)_inset]">
-            <img src="/img/codia/icon-fire.svg" alt="Fire icon" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+            <img src="/img/fullassets/icon-fire.svg" alt="Fire icon" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             <span className="font-['ZT_Nature'] text-xs sm:text-sm md:text-base font-medium text-[#eeeeee]">
               {currentStreak}
             </span>
@@ -99,7 +99,7 @@ function Navbar({ stats: statsProp, activePage = 'learn' }) {
           
           {/* Emerald Points */}
           <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 bg-gradient-to-b from-[#168318] to-[#1fb622] rounded-xl sm:rounded-2xl shadow-[0_-2px_4px_0_rgba(255,255,255,0.5)_inset]">
-            <img src="/img/codia/icon-leaf.svg" alt="Leaf icon" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+            <img src="/img/fullassets/icon-leaf.svg" alt="Leaf icon" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             <span className="font-['ZT_Nature'] text-xs sm:text-sm md:text-base font-medium text-[#eeeeee]">
               {emeraldPoints}
             </span>
@@ -108,13 +108,13 @@ function Navbar({ stats: statsProp, activePage = 'learn' }) {
           {/* Profile Button */}
           <button 
             onClick={() => handleNavClick('/profile')}
-            className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 p-2 sm:p-3 md:p-4 rounded-full transition-colors ${
+            className={`flex items-center justify-center rounded-full transition-colors px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 ${
               isActive('profile')
                 ? 'bg-gradient-to-b from-[#168318] to-[#1fb622]'
                 : 'bg-white/10 hover:bg-white/15'
             }`}
           >
-            <img src="/img/codia/icon-user.svg" alt="User icon" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+            <img src="/img/fullassets/icon-user.svg" alt="User icon" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </button>
 
           {/* Hamburger Menu Button - Mobile Only */}

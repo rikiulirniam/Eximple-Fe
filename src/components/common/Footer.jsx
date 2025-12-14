@@ -34,7 +34,7 @@ function Footer() {
             <div className="w-8 h-8 relative">
               <div 
                 className="w-full h-full bg-cover bg-center bg-no-repeat"
-                style={{backgroundImage: 'url(/img/codia/logo-eximple.png)'}}
+                style={{backgroundImage: 'url(/img/fullassets/logo-eximple.png)'}}
               ></div>
             </div>
             <span className="font-['Airlash_Raiders'] text-xl font-normal bg-gradient-to-b from-[#1fb622] to-[#168318] bg-clip-text text-transparent">Eximple</span>

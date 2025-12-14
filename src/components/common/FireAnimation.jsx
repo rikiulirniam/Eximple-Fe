@@ -28,7 +28,7 @@ export default function FireAnimation({ isFirstStreakToday, isStreakActive }) {
       {/* Fire Icon */}
       <div className="relative">
         <img 
-          src="/img/codia/icon-fire.svg" 
+          src="/img/fullassets/icon-fire.svg" 
           alt="Fire icon" 
           className={`w-6 h-6 transition-all duration-500 ${
             isStreakActive && !isAnimating 
@@ -51,7 +51,7 @@ export default function FireAnimation({ isFirstStreakToday, isStreakActive }) {
             }}
           >
             <img 
-              src="/img/codia/icon-fire.svg" 
+              src="/img/fullassets/icon-fire.svg" 
               alt="Fire rotating" 
               className="w-6 h-6 brightness-150"
               style={{

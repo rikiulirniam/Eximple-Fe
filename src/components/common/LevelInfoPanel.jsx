@@ -72,7 +72,7 @@ function LevelInfoPanel({ level, status, onStart, onClose }) {
             <div className="flex justify-between items-center">
               <span className="font-['ZT_Nature'] text-lg text-white/80">Reward:</span>
               <div className="flex items-center gap-2">
-                <img src="/img/codia/icon-leaf.svg" alt="Leaf icon" className="w-6 h-6" />
+                <img src="/img/fullassets/icon-leaf.svg" alt="Leaf icon" className="w-6 h-6" />
                 <span className="font-['ZT_Nature'] text-xl font-medium text-[#1fb622]">{rewardText}</span>
               </div>
             </div>

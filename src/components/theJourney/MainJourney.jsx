@@ -393,7 +393,7 @@ function MainJourney() {
               })()}
             </h3>
             <button className="w-10 h-10 p-2 bg-white/10 rounded-2xl hover:bg-white/15 transition-colors">
-              <img src="/img/codia/icon-settings.svg" alt="Settings icon" className="w-4 h-4" />
+              <img src="/img/fullassets/icon-settings.svg" alt="Settings icon" className="w-4 h-4" />
             </button>
           </div>
           <h2 className="font-['ZT_Nature'] text-4xl font-medium text-[#ee2724] mb-4">
@@ -437,7 +437,7 @@ function MainJourney() {
                     Status: <span className="bg-gradient-to-b from-[#ffb514] to-[#f4ee17] bg-clip-text text-transparent">Ongoing</span>
                   </p>
                 </div>
-                <img src="/img/codia/icon-ongoing.svg" alt="Ongoing icon" className="absolute top-[52px] left-[190px] w-6 h-6" />
+                <img src="/img/fullassets/icon-ongoing.svg" alt="Ongoing icon" className="absolute top-[52px] left-[190px] w-6 h-6" />
                 <button 
                   onClick={() => handleStartLevel(currentLevel.id)}
                   className="absolute bottom-6 left-6 right-6 h-14 bg-gradient-to-b from-[#ee2724] to-[#f15a45] rounded-3xl shadow-[0_-2px_4px_0_rgba(255,255,255,0.5)_inset] hover:opacity-90 transition-opacity"
@@ -498,7 +498,7 @@ function MainJourney() {
               <div 
                 className="w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500" 
                 style={{
-                  backgroundImage: 'url(/img/codia/path-level1-to-level2.svg)',
+                  backgroundImage: 'url(/img/fullassets/path-level1-to-level2.svg)',
                   filter: getPathStatus(0, 1) 
                     ? 'brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)' // Green filter
                     : 'brightness(0)',
@@ -511,7 +511,7 @@ function MainJourney() {
               <div 
                 className="w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500" 
                 style={{
-                  backgroundImage: 'url(/img/codia/path-level2-to-level3.svg)',
+                  backgroundImage: 'url(/img/fullassets/path-level2-to-level3.svg)',
                   filter: getPathStatus(1, 2) 
                     ? 'brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)' // Green filter
                     : 'brightness(0)',
@@ -524,7 +524,7 @@ function MainJourney() {
               <div 
                 className="w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500" 
                 style={{
-                  backgroundImage: 'url(/img/codia/path-level3-plus.svg)',
+                  backgroundImage: 'url(/img/fullassets/path-level3-plus.svg)',
                   filter: getLongPathStatus() 
                     ? 'brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)' // Green filter
                     : 'brightness(0)',

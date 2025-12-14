@@ -18,23 +18,17 @@ function ClassGrade() {
     return null;
   }
 
-  // Get grades based on class_id
+  // Get grades based on class_id (only SD/Elementary available)
   const getGrades = () => {
     if (class_id === 1) { // SD (Elementary)
       return [1, 2, 3, 4, 5, 6];
-    } else if (class_id === 2) { // SMP (Middle)
-      return [1, 2, 3];
-    } else if (class_id === 3) { // SMA (High)
-      return [1, 2, 3];
     }
     return [];
   };
 
-  // Get class label
+  // Get class label (only SD available)
   const getClassLabel = () => {
     if (class_id === 1) return 'SD';
-    if (class_id === 2) return 'SMP';
-    if (class_id === 3) return 'SMA';
     return '';
   };
 

@@ -45,7 +45,7 @@ const useAchievementsStore = create((set, get) => ({
       triggerAchievement(
         achievement.title || achievement.name,
         achievement.description,
-        achievement.icon_url ? achievement.icon_url : '/img/codia/leaderboard-avatar-1st.svg',
+        achievement.icon_url ? achievement.icon_url : '/img/fullassets/leaderboard-avatar-1st.svg',
         achievement.points_reward || 0
       );
     }

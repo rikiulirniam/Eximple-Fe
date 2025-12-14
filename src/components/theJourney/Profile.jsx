@@ -164,7 +164,7 @@ export default function Profile() {
                   />
                 ) : (
                   <img 
-                    src="/img/codia/profile-avatar-default.svg"
+                    src="/img/fullassets/profile-avatar-default.svg"
                     alt="Profile avatar"
                     className="w-[32px] h-[32px]"
                   />
@@ -217,7 +217,7 @@ export default function Profile() {
                 {points && (
                   <div className="p-4 bg-[rgba(31,182,34,0.1)] rounded-[12px] border border-[#1fb622]/30">
                     <div className="flex items-center gap-2 mb-2">
-                      <img src="/img/codia/icon-leaf.svg" alt="Fire icon" className="w-6 h-6" />
+                      <img src="/img/fullassets/icon-leaf.svg" alt="Fire icon" className="w-6 h-6" />
                       <span className="font-['ZT_Nature'] text-base font-medium text-white">Points</span>
                     </div>
                     <div className="space-y-1">
@@ -247,7 +247,7 @@ export default function Profile() {
                 {streak && (
                   <div className="p-4 bg-[rgba(244,123,32,0.1)] rounded-[12px] border border-[#f47b20]/30">
                     <div className="flex items-center gap-2 mb-2">
-                      <img src="/img/codia/icon-fire.svg" alt="Fire icon" className="w-6 h-6" />
+                      <img src="/img/fullassets/icon-fire.svg" alt="Fire icon" className="w-6 h-6" />
                       <span className="font-['ZT_Nature'] text-base font-medium text-white">Streak</span>
                     </div>
                     <div className="space-y-1">
@@ -381,18 +381,16 @@ export default function Profile() {
                         handleInputChange('grade_level_id', null);
                       }
                     }}
-                    className="w-full h-[40px] rounded-[12px] border border-[#aaaaaa] bg-[rgba(170,170,170,0.05)] px-4 pr-10 font-['ZT_Nature'] text-base text-white appearance-none cursor-pointer focus:outline-none focus:border-[#1fb622] transition-colors hover:border-[#1fb622]/50"
+                    disabled
+                    className="w-full h-[40px] rounded-[12px] border border-[#aaaaaa] bg-[rgba(170,170,170,0.1)] px-4 pr-10 font-['ZT_Nature'] text-base text-[#aaaaaa] appearance-none cursor-not-allowed"
                     style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 4L6 8L10 4' stroke='%231fb622' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 4L6 8L10 4' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
                       backgroundRepeat: 'no-repeat',
                       backgroundPosition: 'right 12px center',
                       paddingRight: '40px'
                     }}
                   >
-                    <option value="" className="bg-[#041d05] text-white">Select school level</option>
                     <option value="1" className="bg-[#041d05] text-white">Elementary School (SD)</option>
-                    <option value="2" className="bg-[#041d05] text-white">Middle School (SMP)</option>
-                    <option value="3" className="bg-[#041d05] text-white">High School (SMA)</option>
                   </select>
                 </div>
               </div>
