@@ -1,5 +1,6 @@
 ﻿import { useTypingAnimation } from '../../hooks/useTypingAnimation';
 import { useRegister } from '../../hooks/useRegister';
+import { GoogleLogin } from '@react-oauth/google';
 
 const TYPING_TEXTS = [
   "You don't want to lose all your progress.",
@@ -19,6 +20,8 @@ function Register() {
     togglePassword,
     toggleConfirmPassword,
     handleLogin,
+    handleGoogleRegister,
+    handleGoogleError,
   } = useRegister();
 
   return (
@@ -132,6 +135,31 @@ function Register() {
                 {isLoading ? 'Registering...' : 'Register'}
               </span>
             </button>
+
+            {import.meta.env.VITE_GOOGLE_CLIENT_ID && (
+              <>
+                <div className="w-full flex items-center gap-4 my-2">
+                  <div className="flex-1 h-px bg-[rgba(170,170,170,0.3)]"></div>
+                  <span className="font-['ZT_Nature'] text-sm text-[rgba(170,170,170,0.7)]">or</span>
+                  <div className="flex-1 h-px bg-[rgba(170,170,170,0.3)]"></div>
+                </div>
+
+                <div className="w-full flex justify-center">
+                  <div className="[&>div]:!bg-white [&>div]:!rounded-lg [&>div]:!shadow-md [&>div]:hover:!shadow-lg [&>div]:transition-shadow [&>div]:hover:!shadow-[0_0_10px_rgba(31,182,34,0.3)]">
+                    <GoogleLogin
+                      onSuccess={handleGoogleRegister}
+                      onError={handleGoogleError}
+                      useOneTap={false}
+                      theme="outline"
+                      size="large"
+                      text="signup_with"
+                      shape="rectangular"
+                      logo_alignment="left"
+                    />
+                  </div>
+                </div>
+              </>
+            )}
 
             <button 
               type="button"

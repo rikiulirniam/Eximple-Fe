@@ -64,12 +64,18 @@ Buat file `.env` di root directory:
 # For development, use localhost or dev tunnel URL
 # For production, use your production API URL
 VITE_API_BASE_URL=http://localhost:3001
+
+# Google OAuth (Optional)
+# Get your Client ID from Google Cloud Console
+# See GOOGLE_LOGIN_SETUP.md for detailed setup instructions
+VITE_GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
 ```
 
 **Catatan**: 
 - Ganti `http://localhost:3001` dengan URL API backend Anda
 - File `.env` sudah ada di `.gitignore` dan tidak akan di-commit
 - Untuk development, bisa menggunakan proxy di `vite.config.js`
+- Untuk Google Login, ikuti panduan di `GOOGLE_LOGIN_SETUP.md`
 
 ### 4. Run Development Server
 
@@ -141,6 +147,7 @@ Aplikasi ini terintegrasi dengan backend API. Pastikan backend server berjalan d
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `VITE_API_BASE_URL` | Base URL untuk API backend | `http://localhost:3001` |
+| `VITE_GOOGLE_CLIENT_ID` | Google OAuth Client ID (optional, untuk Google Login) | - |
 
 ## 🎨 Features Detail
 

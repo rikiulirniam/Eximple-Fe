@@ -3,13 +3,11 @@ import { achievementsAPI } from '../services/api';
 import { triggerAchievement } from '../hooks/useAchievement.jsx';
 
 const useAchievementsStore = create((set, get) => ({
-  // State
   allAchievements: [],
   myAchievements: [],
   isLoading: false,
   error: null,
 
-  // Actions
   getAchievements: async () => {
     set({ isLoading: true, error: null });
     try {
@@ -22,7 +20,6 @@ const useAchievementsStore = create((set, get) => ({
     }
   },
 
-  // Alias for getAchievements
   getAllAchievements: async () => {
     return get().getAchievements();
   },
@@ -39,7 +36,6 @@ const useAchievementsStore = create((set, get) => ({
     }
   },
 
-  // Helper to check and trigger achievement
   checkAndTriggerAchievement: (achievement) => {
     if (achievement) {
       triggerAchievement(

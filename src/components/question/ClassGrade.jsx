@@ -7,7 +7,6 @@ function ClassGrade() {
   const { grade_level_id, full_name, gender, class_id, setGradeLevelId, setFullName, setGender } = useProfileCompletionStore();
   const [error, setError] = useState(null);
 
-  // Redirect to class-now if no class_id is selected
   useEffect(() => {
     if (!class_id) {
       navigate('/class-now');
@@ -18,15 +17,13 @@ function ClassGrade() {
     return null;
   }
 
-  // Get grades based on class_id (only SD/Elementary available)
   const getGrades = () => {
-    if (class_id === 1) { // SD (Elementary)
+    if (class_id === 1) {
       return [1, 2, 3, 4, 5, 6];
     }
     return [];
   };
 
-  // Get class label (only SD available)
   const getClassLabel = () => {
     if (class_id === 1) return 'SD';
     return '';

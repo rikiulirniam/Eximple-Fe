@@ -1,4 +1,5 @@
 import { useLogin } from '../../hooks/useLogin';
+import { GoogleLogin } from '@react-oauth/google';
 
 function Login() {
   const {
@@ -10,6 +11,8 @@ function Login() {
     handleSubmit,
     togglePassword,
     handleCreateAccount,
+    handleGoogleLogin,
+    handleGoogleError,
   } = useLogin();
 
   return (
@@ -38,7 +41,6 @@ function Login() {
             Welcome back!
           </h2>
 
-          {/* Error Message */} 
           {formError && (
             <div className="w-full px-4 py-2 bg-red-500/20 border-2 border-red-500 rounded-lg">
               <p className="font-['ZT_Nature'] text-sm text-red-400">{formError}</p>
@@ -86,6 +88,31 @@ function Login() {
               {isLoading ? 'Logging in...' : 'Login'}
             </span>
           </button>
+
+          {import.meta.env.VITE_GOOGLE_CLIENT_ID && (
+            <>
+              <div className="w-full flex items-center gap-4 my-2">
+                <div className="flex-1 h-px bg-[rgba(170,170,170,0.3)]"></div>
+                <span className="font-['ZT_Nature'] text-sm text-[rgba(170,170,170,0.7)]">or</span>
+                <div className="flex-1 h-px bg-[rgba(170,170,170,0.3)]"></div>
+              </div>
+
+              <div className="w-full flex justify-center">
+                <div className="[&>div]:!bg-white [&>div]:!rounded-lg [&>div]:!shadow-md [&>div]:hover:!shadow-lg [&>div]:transition-shadow">
+                  <GoogleLogin
+                    onSuccess={handleGoogleLogin}
+                    onError={handleGoogleError}
+                    useOneTap={false}
+                    theme="outline"
+                    size="large"
+                    text="signin_with"
+                    shape="rectangular"
+                    logo_alignment="left"
+                  />
+                </div>
+              </div>
+            </>
+          )}
 
           <button 
             type="button"

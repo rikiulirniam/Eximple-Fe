@@ -11,14 +11,12 @@ function Leaderboard() {
 
   useEffect(() => {
     getStats();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const formatScore = (score) => {
     return new Intl.NumberFormat('id-ID').format(score || 0);
   };
 
-  // Ensure leaderboard is always an array
   const leaderboardArray = Array.isArray(leaderboard) ? leaderboard : [];
 
   const topThree = leaderboardArray.slice(0, 3).map((player, index) => ({
@@ -40,7 +38,6 @@ function Leaderboard() {
     icon: '/img/fullassets/leaderboard-icon-default.svg'
   }));
 
-  // Early return for initial loading state
   if (isLoading && leaderboardArray.length === 0) {
     return (
       <div className="w-screen min-h-screen bg-gradient-to-r from-[#020c02] to-[#041d05] relative overflow-x-hidden overflow-y-auto">

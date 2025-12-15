@@ -1,8 +1,11 @@
 ﻿import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Start, Greetings, Login, Register, OTP, ChooseSubject, ClassGrade, ClassNow, Leaderboard, MainJourney, Level, AIAgent, Profile, Achievement, Teams } from './components';
 import AchievementContainer from './components/hooks/UseToast';
 import useAuthStore from './stores/authStore';
+
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
 
 function App() {
   const { checkAuth } = useAuthStore();
@@ -12,9 +15,10 @@ function App() {
   }, [checkAuth]);
 
   return (
-    <BrowserRouter>
-      <AchievementContainer />
-      <Routes>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+      <BrowserRouter>
+        <AchievementContainer />
+        <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/greetings" element={<Greetings />} />
         <Route path="/login" element={<Login />} />
@@ -30,8 +34,9 @@ function App() {
         <Route path="/achievement" element={<Achievement />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/profile" element={<Profile />} />
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </GoogleOAuthProvider>
   );
 }
 

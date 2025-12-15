@@ -78,6 +78,21 @@ const useAuthStore = create(
         }
       },
 
+      googleLogin: async (idToken) => {
+        set({ isLoading: true, error: null });
+        try {
+          const response = await authAPI.googleLogin(idToken);
+          const { token, user } = response.data;
+          get().setToken(token);
+          get().setUser(user);
+          set({ isLoading: false, isAuthenticated: true });
+          return { success: true, data: response.data };
+        } catch (error) {
+          set({ isLoading: false, error: error.message });
+          return { success: false, error: error.message };
+        }
+      },
+
       getMe: async () => {
         set({ isLoading: true, error: null });
         try {

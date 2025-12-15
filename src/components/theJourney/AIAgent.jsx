@@ -49,17 +49,11 @@ export default function AIAgent() {
           const session = sessionsResult.data[0];
           setCurrentSession(session);
           const messagesResult = await getMessages(session.id);
-          if (!messagesResult.success) {
-            // Failed to load messages
-          }
           await loadSessionPreviews(sessionsResult.data);
         } else if (sessionsResult.success) {
           const createResult = await createSession();
           if (createResult.success && createResult.data) {
-            const messagesResult = await getMessages(createResult.data.id);
-            if (!messagesResult.success) {
-              // Failed to load messages after creating session
-            }
+            await getMessages(createResult.data.id);
             await getSessions();
           }
         } else {
@@ -73,7 +67,6 @@ export default function AIAgent() {
     };
 
     initializeChat();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated, token]);
 
   useEffect(() => {
@@ -137,7 +130,6 @@ export default function AIAgent() {
           }
         }
       } catch {
-        // Failed to load preview for session
       }
       return null;
     });

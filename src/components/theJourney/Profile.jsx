@@ -46,7 +46,6 @@ export default function Profile() {
         bio: profile.bio || '',
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile?.id, profile?.full_name, profile?.gender, profile?.grade_level_id, profile?.class_id, profile?.bio, user?.email, user?.username]);
 
   const handleInputChange = (field, value) => {

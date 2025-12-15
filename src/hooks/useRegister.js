@@ -6,7 +6,7 @@ import { formatRegistrationError } from '../utils/errorMessages';
 
 export function useRegister() {
   const navigate = useNavigate();
-  const { register, isLoading } = useAuthStore();
+  const { register, googleLogin, isLoading } = useAuthStore();
   const [formError, setFormError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -37,11 +37,8 @@ export function useRegister() {
       if (result.success) {
         navigate('/otp', { state: { email: formData.email } });
       } else {
-        // Format error message to be user-friendly
-        // Check if error has data property (from API error handler)
         let errorToFormat = result.error;
         if (result.error?.data) {
-          // Extract error from data.errors array or data.message
           const data = result.error.data;
           if (data.errors && Array.isArray(data.errors) && data.errors.length > 0) {
             errorToFormat = data.errors.map(err => err.message || err).join(', ');
@@ -55,8 +52,6 @@ export function useRegister() {
         setFormError(formattedError);
       }
     } catch (error) {
-      // Format error message to be user-friendly
-      // Check if error has data property (from API error handler)
       let errorToFormat = error.message;
       if (error.data) {
         const data = error.data;
@@ -71,6 +66,43 @@ export function useRegister() {
     }
   };
 
+  const handleGoogleRegister = async (credentialResponse) => {
+    setFormError(null);
+    if (!credentialResponse?.credential) {
+      setFormError('Google registration failed. No credential received.');
+      return;
+    }
+
+    try {
+      const result = await googleLogin(credentialResponse.credential);
+      if (result.success) {
+        if (result.data.user.profile_complete) {
+          navigate('/journey');
+        } else {
+          navigate('/class-now');
+        }
+      } else {
+        setFormError(result.error || 'Google registration failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Google registration error:', error);
+      setFormError(error.message || 'Google registration failed. Please check your connection and try again.');
+    }
+  };
+
+  const handleGoogleError = (error) => {
+    console.error('Google OAuth Error:', error);
+    if (error?.error === 'popup_closed_by_user') {
+      setFormError('Google sign-in was cancelled. Please try again.');
+    } else if (error?.error === 'access_denied') {
+      setFormError('Access denied. Please allow Google sign-in permissions.');
+    } else if (error?.error === 'idpiframe_initialization_failed') {
+      setFormError('Google sign-in failed. Please check your Google Client ID configuration.');
+    } else {
+      setFormError(`Google registration failed: ${error?.error || error?.type || 'Unknown error'}. Please check Google Cloud Console settings.`);
+    }
+  };
+
   return {
     formData,
     formError,
@@ -82,6 +114,8 @@ export function useRegister() {
     togglePassword: () => setShowPassword(!showPassword),
     toggleConfirmPassword: () => setShowConfirmPassword(!showConfirmPassword),
     handleLogin: () => navigate('/login'),
+    handleGoogleRegister,
+    handleGoogleError,
   };
 }
 

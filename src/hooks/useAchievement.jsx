@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 

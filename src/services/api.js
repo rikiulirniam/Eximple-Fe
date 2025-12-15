@@ -1,7 +1,5 @@
 import { parseResponse, handleApiError } from '../utils/apiErrorHandler';
 
-// Get API base URL from environment variable
-// Default to localhost if not set
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
 
 async function apiRequest(endpoint, options = {}) {
@@ -24,17 +22,14 @@ async function apiRequest(endpoint, options = {}) {
   try {
     const response = await fetch(url, config);
     
-    // Handle network errors (CORS, connection failed, etc.)
     if (!response.ok && response.status === 0) {
       throw new Error('Network error. Periksa koneksi internet atau hubungi administrator jika masalah berlanjut.');
     }
     
-    // Parse response even if status is not ok to get error details
     let data;
     try {
       data = await parseResponse(response);
     } catch (parseError) {
-      // If parsing fails, create a basic error structure
       data = { 
         message: parseError.message || `Server error (${response.status})`,
         error: `HTTP ${response.status}: ${response.statusText}`
@@ -43,16 +38,13 @@ async function apiRequest(endpoint, options = {}) {
     
     return handleApiError(data, response);
   } catch (error) {
-    // If error already has status, it's from handleApiError - re-throw it
     if (error.status) {
       throw error;
     }
     
-    // Handle CORS and network errors
     if (error.message.includes('CORS') || error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
       throw new Error('Gagal terhubung ke server. Masalah CORS terdeteksi. Silakan hubungi administrator backend untuk mengaktifkan CORS atau gunakan proxy.');
     }
-    // Re-throw other errors
     throw error;
   }
 }
@@ -89,6 +81,13 @@ export const authAPI = {
   getMe: async () => {
     return apiRequest('/api/auth/me', {
       method: 'GET',
+    });
+  },
+
+  googleLogin: async (idToken) => {
+    return apiRequest('/api/auth/google', {
+      method: 'POST',
+      body: { idToken },
     });
   },
 };
@@ -253,7 +252,7 @@ export const progressAPI = {
   completeLevel: async (levelId) => {
     return apiRequest(`/api/progress/levels/${levelId}/complete`, {
       method: 'POST',
-      body: {}, // Empty body as per API documentation
+      body: {},
     });
   },
 

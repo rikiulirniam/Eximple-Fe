@@ -48,7 +48,6 @@ function Level() {
         try {
           await startLevel(parseInt(levelId));
         } catch {
-          // Silent fail - level can still be displayed
         }
       } catch (err) {
         setError(err.message || 'Failed to load level');
@@ -63,17 +62,15 @@ function Level() {
     };
   }, [levelId, getLevel, startLevel, resetLevel]);
 
-  // Show help prompt 10 seconds after entering the level
   useEffect(() => {
     if (!currentLevel || helpPromptShownRef.current) return;
 
-    // Show help prompt after 10 seconds
     const timer = setTimeout(() => {
       if (!helpPromptShownRef.current) {
         setShowHelpPrompt(true);
         helpPromptShownRef.current = true;
       }
-    }, 10000); // 10 seconds
+    }, 10000);
 
     return () => {
       clearTimeout(timer);
@@ -113,26 +110,21 @@ function Level() {
           try {
             await getJourneyMap(subjectLevelId);
           } catch {
-            // Silent fail
           }
         }
         try {
           await getStats();
         } catch {
-          // Silent fail
         }
-        // Update profile to refresh points in navbar
         try {
           await getProfile();
         } catch {
-          // Silent fail
         }
         
         setTimeout(() => {
           navigate('/journey');
         }, 100);
       } else {
-        // Handle different error cases with more specific messages
         const errorMsg = result.error || '';
         if (errorMsg.toLowerCase().includes('already completed') || 
             errorMsg.toLowerCase().includes('sudah diselesaikan') ||

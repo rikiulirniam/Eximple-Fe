@@ -34,12 +34,10 @@ export default function Achievement() {
       }).filter(id => id !== null)
     );
 
-    // Map all achievements and mark which ones are completed
     return allAchievements.map(achievement => {
       const achievementId = achievement.id;
       const isCompleted = completedIds.has(achievementId);
       
-      // Find the user_achievement record for this achievement
       const userAchievement = (myAchievements || []).find(ua => 
         ua.achievement_id === achievementId || 
         ua.achievements?.id === achievementId

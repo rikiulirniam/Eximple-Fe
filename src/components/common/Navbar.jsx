@@ -9,12 +9,10 @@ function Navbar({ stats: statsProp, activePage = 'learn' }) {
   const { stats: progressStats, getStats } = useProgressStore();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Load stats when component mounts
   useEffect(() => {
     getStats();
   }, [getStats]);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsMobileMenuOpen(false);
@@ -22,17 +20,14 @@ function Navbar({ stats: statsProp, activePage = 'learn' }) {
     return () => clearTimeout(timer);
   }, [activePage]);
 
-  // Use stats from prop, progressStore, or fallback to profileStore
   const stats = statsProp || progressStats;
 
   const isActive = (page) => activePage === page;
 
-  // Calculate points (emerald) - prioritize stats from progressStore
   const emeraldPoints = stats?.points?.total || 
                         stats?.total_points || 
                         (typeof profilePoints === 'object' ? (profilePoints?.total || 0) : (profilePoints || 0));
 
-  // Calculate streak - prioritize stats from progressStore
   const currentStreak = stats?.streak?.current || 
                         stats?.current_streak ||
                         (typeof profileStreak === 'object' ? (profileStreak?.current || profileStreak?.current_streak || 0) : (profileStreak || 0));
