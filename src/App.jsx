@@ -4,8 +4,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Start, Greetings, Login, Register, OTP, ChooseSubject, ClassGrade, ClassNow, Leaderboard, MainJourney, Level, AIAgent, Profile, Achievement, Teams } from './components';
 import AchievementContainer from './components/hooks/UseToast';
 import useAuthStore from './stores/authStore';
-
-const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
+import { GOOGLE_CLIENT_ID } from './utils/constants';
 
 function App() {
   const { checkAuth } = useAuthStore();

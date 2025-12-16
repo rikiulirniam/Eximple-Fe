@@ -1,6 +1,7 @@
 ﻿import { useTypingAnimation } from '../../hooks/useTypingAnimation';
 import { useRegister } from '../../hooks/useRegister';
 import { GoogleLogin } from '@react-oauth/google';
+import { isGoogleOAuthEnabled } from '../../utils/constants';
 
 const TYPING_TEXTS = [
   "You don't want to lose all your progress.",
@@ -136,7 +137,7 @@ function Register() {
               </span>
             </button>
 
-            {import.meta.env.VITE_GOOGLE_CLIENT_ID && (
+            {isGoogleOAuthEnabled() && (
               <>
                 <div className="w-full flex items-center gap-4 my-2">
                   <div className="flex-1 h-px bg-[rgba(170,170,170,0.3)]"></div>

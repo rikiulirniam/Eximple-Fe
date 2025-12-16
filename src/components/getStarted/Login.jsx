@@ -1,5 +1,6 @@
 import { useLogin } from '../../hooks/useLogin';
 import { GoogleLogin } from '@react-oauth/google';
+import { isGoogleOAuthEnabled } from '../../utils/constants';
 
 function Login() {
   const {
@@ -89,7 +90,7 @@ function Login() {
             </span>
           </button>
 
-          {import.meta.env.VITE_GOOGLE_CLIENT_ID && (
+          {isGoogleOAuthEnabled() && (
             <>
               <div className="w-full flex items-center gap-4 my-2">
                 <div className="flex-1 h-px bg-[rgba(170,170,170,0.3)]"></div>
